@@ -1,0 +1,14 @@
+This is a sagittal knee MRI slice of the left knee. Image right is anterior, top is superior. This slice is in the central part of the knee (intercondylar region).
+For each of the following knee conditions, draw one box around the anatomical region where it is diagnosed,
+ONLY if that region is actually visible in this slice; otherwise omit it. Do not judge whether the condition is present.
+- ACL: the anterior cruciate ligament from its femoral attachment (lateral wall of the intercondylar notch) to its tibial attachment.
+- MCL: the medial collateral ligament band along the medial femoral condyle and proximal medial tibia, outside the medial meniscus.
+- Medial meniscus: the medial meniscus (body, anterior and posterior horns as visible).
+- Lateral meniscus: the lateral meniscus (body, anterior and posterior horns as visible).
+- Medial tibiofemoral OA: the medial femoral condyle and medial tibial plateau articular surfaces with the joint space between them.
+- Lateral tibiofemoral OA: the lateral femoral condyle and lateral tibial plateau articular surfaces with the joint space between them.
+- Patellofemoral OA: the patella and the femoral trochlea articular surfaces with the joint space between them.
+- Baker's cyst: the posteromedial popliteal region between the medial head of gastrocnemius and the semimembranosus tendon, at and above the joint line.
+Coordinates are integers in [0, 1000] relative to the image width and height, origin at the top-left corner, x to the right, y downward.
+Output a JSON list of {"bbox_2d": [x1, y1, x2, y2], "label": "<one of: ACL, MCL, Medial meniscus, Lateral meniscus, Medial tibiofemoral OA, Lateral tibiofemoral OA, Patellofemoral OA, Baker's cyst>"}.
+Return only the JSON list, with no other text.

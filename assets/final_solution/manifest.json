@@ -1,0 +1,8 @@
+{
+  "source": "dataset/model_input_v1/train_manifest_v1.jsonl",
+  "source_sha256": "7b0e00c6aa1eb1f36e6a176888e1a89c356616517cfa27bd24c2ca1bf75016fc",
+  "file": "training_selection.jsonl.gz",
+  "sha256": "3915fbe692d55b911a46c3f3836c4ec2136030bebf22505a44745c145315d5e2",
+  "studies": 4407,
+  "contents": "Image linkage and series selection only; no pixels, reports, target values or folds."
+}

@@ -1,0 +1,84 @@
+{
+  "version": "knee-input-pipeline-v2",
+  "roles": [
+    "SAG_FLUID_FS",
+    "COR_FLUID_FS",
+    "AX_FLUID_FS",
+    "SAG_STRUCT",
+    "COR_STRUCT"
+  ],
+  "slices_per_series": 16,
+  "canvas_mm": 140.0,
+  "image_size": 384,
+  "cache_dtype": "uint16",
+  "cache_config_fingerprint": "4c65b9b6f73274c7",
+  "selection_manifest_sha256": "b2886149da2aee6aecb351aa3df77dc5b9befa978e1411fa915388ec20dce92b",
+  "selection_manifest_bytes": 40271178,
+  "cache_intensity_contract": "canonical series-level 0.5/99.5 percentile uint16; linear map to [0,1]",
+  "sampling": {
+    "evaluation": "nearest slice to each physical-stratum midpoint",
+    "training": "uniform real slice within each physical stratum",
+    "position_fallback": "uniform coordinates from spacing_between_slices, slice_thickness, then 1 mm",
+    "allow_depth_reversal": false
+  },
+  "physical_crop": {
+    "center": "source image center",
+    "keep_physical_aspect_ratio": true,
+    "pad_value": 0.0,
+    "interpolation": "bilinear-antialias"
+  },
+  "orientation": {
+    "method": "DICOM patient-coordinate discrete transpose/flips",
+    "laterality_priority": "consistent L/R DICOM tag, then patient-coordinate center beyond 30 mm",
+    "tag_geometry_conflict": "unknown",
+    "coordinate_threshold_mm": 30.0,
+    "unknown_is_masked": true,
+    "appearance_inference": false
+  },
+  "deterministic_stage_cache": {
+    "enabled": true,
+    "dtype": "uint16",
+    "stage": "canonical-depth-order + DICOM in-plane orientation + 140mm crop/pad + 384x384 resize",
+    "quantization": "round(clamp(x,0,1)*65535)",
+    "write_policy": "offline-atomic-only",
+    "online_cache_miss": "run the identical function without writing"
+  },
+  "augmentation": {
+    "enabled": true,
+    "rotation_degrees": 7.0,
+    "translation_fraction": 0.04,
+    "scale_min": 0.95,
+    "scale_max": 1.05,
+    "gamma_min": 0.9,
+    "gamma_max": 1.1,
+    "contrast_min": 0.9,
+    "contrast_max": 1.1,
+    "noise_std_max": 0.02,
+    "slice_dropout_probability": 0.04,
+    "block_dropout_probability": 0.15,
+    "block_dropout_max_slices": 2,
+    "role_dropout_probability": 0.04,
+    "horizontal_flip_probability": 0.0,
+    "vertical_flip_probability": 0.0
+  },
+  "seed": 20260821,
+  "paths": {
+    "cache_root": "<set by: final_solution.py prepare>",
+    "stage_cache_root": "<set by: final_solution.py prepare>",
+    "selection_manifest": "<set by: final_solution.py prepare>"
+  },
+  "derived_model_view": {
+    "id": "central-band-depth32-size384-v1",
+    "native_stage_cache_unchanged": true,
+    "depth": 32,
+    "band": [
+      0.12,
+      0.88
+    ],
+    "triplet_depth": 3,
+    "stride": 1,
+    "train_windows": 8,
+    "eval_windows": 30
+  },
+  "supervision_schema": "astra111-soft-v1"
+}

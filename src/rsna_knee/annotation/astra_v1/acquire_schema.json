@@ -1,0 +1,530 @@
+{
+  "type": "object",
+  "properties": {
+    "findings": {
+      "type": "object",
+      "properties": {
+        "ACL": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "MCL": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Medial Meniscus": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Lateral Meniscus": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Medial OA": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Lateral OA": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "PF OA": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Effusion": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Synovitis": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Baker's": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Contusion": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        },
+        "Fracture": {
+          "type": "object",
+          "properties": {
+            "image_visibility": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "limited",
+                "not_assessable"
+              ]
+            },
+            "image_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "report_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary_and_limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_visibility",
+            "image_evidence",
+            "report_evidence",
+            "summary_and_limitations"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "additionalProperties": false
+    },
+    "probabilities": {
+      "type": "object",
+      "properties": {
+        "ACL": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "MCL": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Medial Meniscus": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Lateral Meniscus": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Medial OA": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Lateral OA": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "PF OA": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Effusion": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Synovitis": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Baker's": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Contusion": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Fracture": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "findings",
+    "probabilities"
+  ],
+  "additionalProperties": false
+}

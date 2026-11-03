@@ -1,0 +1,24 @@
+{
+  "repo_id": "timm/maxxvitv2_rmlp_base_rw_384.sw_in12k_ft_in1k",
+  "revision": "d8070430aec8780b2af25ca6454e6d04e5e60374",
+  "target_dir": "<set by: final_solution.py prepare>",
+  "license": "apache-2.0",
+  "files": [
+    {
+      "name": "README.md",
+      "size": 22600,
+      "sha256": "a4511cb452596d8e8fe24b168e315e68df0a029f804e384f52ddf2950a4cfeb7"
+    },
+    {
+      "name": "config.json",
+      "size": 607,
+      "sha256": "43523dc2efebb58226b3dd27c5912bf5f82ab22fd7034ae4401ac97d8d31b70a"
+    },
+    {
+      "name": "model.safetensors",
+      "size": 464437480,
+      "sha256": "6c1ab39fdc22cf463408739f45bb5544c86c287200caa0ba6f3481b28dc26918"
+    }
+  ],
+  "huggingface_lfs_sha256_model_safetensors": "6c1ab39fdc22cf463408739f45bb5544c86c287200caa0ba6f3481b28dc26918"
+}

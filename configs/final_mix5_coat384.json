@@ -1,0 +1,196 @@
+{
+  "version": "full-data-fixed-ema-swa-training-v1",
+  "name": "fullmix5-swa-coatnet2-native32-mix32311-v001",
+  "seed": 20260823,
+  "input_config": "configs/knee_input_pipeline_384_astra111.json",
+  "augmentation": {
+    "mode": "safe_gpu_strong",
+    "rotation_deg": 16,
+    "zoom_in": 0.16,
+    "shift": 0.1,
+    "intensity": 0.2,
+    "flips": false,
+    "zoom_out": false,
+    "slice_dropout": false,
+    "role_dropout": false
+  },
+  "model": {
+    "input_shape": [
+      5,
+      32,
+      384,
+      384
+    ],
+    "backbone": "timm:coatnet_rmlp_2_rw_384.sw_in12k_ft_in1k",
+    "pretrained_manifest": "configs/pretrained_coatnet_rmlp2.json",
+    "depth_band": [
+      0.12,
+      0.88
+    ],
+    "role_slices": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "window_stride": 1,
+    "window_scope": "within_role",
+    "triplet_count": 30,
+    "train_windows_per_role": 8,
+    "triplet_depth": 3,
+    "feature_readout": "stage4 GAP + gamma*(spatial attention pooled - GAP), six anatomical targets",
+    "roles": 5,
+    "targets": 12,
+    "fusion": "per-disease within-role attention then five-role concatenation",
+    "fusion_hidden": 256,
+    "head_hidden": 256,
+    "dropout": 0.2,
+    "trainable_backbone": "all",
+    "gradient_checkpointing": true,
+    "location_pooling": true,
+    "replacement_probability": 0.0,
+    "backbone_module": "coatnet",
+    "backbone_image_chunk": 32
+  },
+  "loss": {
+    "base": "masked_bce_with_logits",
+    "validation": "masked_bce_with_logits",
+    "soft_ranking": {
+      "weight": 0.05,
+      "minimum_target_gap": 0.25,
+      "temperature": 1,
+      "pair_weight": "absolute_target_gap",
+      "targets": "same_rule_for_all_12"
+    }
+  },
+  "data": {
+    "batch_size": 8,
+    "workers": 8,
+    "prefetch_factor": 2,
+    "persistent_workers": true,
+    "pin_memory": true,
+    "host_image_dtype": "uint16",
+    "drop_last": true
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "backbone_lr": 8.944271909999159e-05,
+    "new_lr": 0.001,
+    "weight_decay": 0.02,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "fused": true,
+    "gradient_clip_norm": 1,
+    "stage_lr_decay": 0.9
+  },
+  "schedule": {
+    "pct_start": 0.15,
+    "anneal_strategy": "cos",
+    "cycle_momentum": true,
+    "base_momentum": 0.85,
+    "max_momentum": 0.95,
+    "div_factor": 25,
+    "final_div_factor": 10000,
+    "three_phase": false
+  },
+  "ema": {
+    "enabled": true,
+    "decay": 0.995,
+    "validate": true
+  },
+  "runtime": {
+    "device": "cuda",
+    "amp_dtype": "bfloat16",
+    "allow_tf32": true,
+    "cudnn_benchmark": false,
+    "log_every_steps": 20,
+    "validate_every_epochs": 1,
+    "checkpoint_every_epochs": 1,
+    "keep_epoch_checkpoints": false,
+    "compile": false,
+    "cudnn_enabled": true,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  },
+  "dependencies": {
+    "python": "3.12",
+    "torch": "2.13.0+cu130",
+    "torchvision": "0.28.0+cu130",
+    "timm": "1.0.28",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8"
+  },
+  "evaluation_protocol": "full-data-s4349-h58-no-heldout-v1",
+  "checkpoint_rule": "fixed_uniform_ema_swa_epochs_15_19_1indexed_no_selection",
+  "experiment_id": "FULLMIX5-SWA",
+  "train_input_augmentation": {
+    "enabled": true,
+    "scope": "training loader only; validation, reload and inference unchanged",
+    "cpu_block": "input_config.augmentation (series-coherent per role on the derived 32-slice view)",
+    "pixel_valid_for_cpu_affine": "full_canvas",
+    "depth_center_jitter": true,
+    "depth_band_scale": [
+      0.8,
+      1.25
+    ],
+    "never_drop_last_role": true,
+    "trace": true
+  },
+  "location_supervision": {
+    "lookup_run": "<set by: final_solution.py prepare>",
+    "usage_map": "<set by: final_solution.py prepare>",
+    "mil_backbone_gradient": "connected",
+    "spatial_hinge_tau": 0.7,
+    "negative_mass_tau": 0.1,
+    "aux_weights": {
+      "mil": 0.1,
+      "location": 0.1,
+      "window": 0.1
+    },
+    "annotation_inference_required": false,
+    "lookup_manifest_sha256": "<set by: final_solution.py prepare>",
+    "usage_map_sha256": "<set by: final_solution.py prepare>"
+  },
+  "boxcombo": {
+    "index": "<set by: final_solution.py prepare>",
+    "index_sha256": "<set by: final_solution.py prepare>",
+    "index_manifest": "<set by: final_solution.py prepare>",
+    "index_manifest_sha256": "<set by: final_solution.py prepare>",
+    "residual_coefficient": 0.25,
+    "lesion_weight": 0.1,
+    "global_only": true,
+    "annotation_inference_required": false,
+    "case_positive_threshold": 0.5,
+    "target_count": 12
+  },
+  "onecycle_horizon_epochs": 30,
+  "swa": {
+    "members_epochs_0indexed": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "members_epochs_1indexed": [
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "weighting": "uniform",
+    "source": "ema",
+    "bn_recalibration": false,
+    "nonfloat_buffers": "copied from last member (epoch index 18)"
+  },
+  "stop_after_epochs": 19,
+  "fulldata": {
+    "records_path": "<set by: final_solution.py prepare>",
+    "records_sha256": "<set by: final_solution.py prepare>"
+  }
+}

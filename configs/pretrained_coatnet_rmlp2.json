@@ -1,0 +1,13 @@
+{
+  "repo_id": "timm/coatnet_rmlp_2_rw_384.sw_in12k_ft_in1k",
+  "revision": "2c31d82376cc244c907c064332941e6c65be81f1",
+  "target_dir": "<set by: final_solution.py prepare>",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "name": "model.safetensors",
+      "size": 295695280,
+      "sha256": "91570c7af10fea0af03c1b0a49be3e4775596239890eb4193c75129b3045623e"
+    }
+  ]
+}
