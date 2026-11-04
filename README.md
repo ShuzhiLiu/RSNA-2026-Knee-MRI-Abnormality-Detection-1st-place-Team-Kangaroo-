@@ -205,7 +205,7 @@ Not re-run: a complete 19-epoch fit, the paid annotation model calls, and the an
 Astra v1/v2 labels, Hulu/Qwen labels, anatomical boxes, the classifier and this code: sakaku / liushuzhi.
 Teammate-Astra and focus-guided labels and the source lesion annotations: @tascj0 (his releases keep their own terms).
 
-This code is released under **CC BY-NC 4.0** (see [LICENSE](LICENSE)), the same terms as the released supervision
-dataset. Third-party components keep their licenses (timm and the pretrained weights: Apache-2.0). Competition data
+This code is released under the **MIT License** (see [LICENSE](LICENSE)). The released supervision dataset remains
+under **CC BY-NC 4.0**. Third-party components keep their licenses (timm and the pretrained weights: Apache-2.0). Competition data
 are subject to the competition rules and are not redistributed here. Model outputs and annotations are research
 artifacts, not clinical diagnoses.
